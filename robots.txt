@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://rahimuj570.github.io/sitemap.xml
+
