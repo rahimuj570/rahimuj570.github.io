@@ -5,12 +5,12 @@
   <title>Rahimujjaman's Portfolio</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
+
   <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
-<link rel="shortcut icon" href="./favicon/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
-<link rel="manifest" href="./favicon/site.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="./favicon/site.webmanifest" />
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Playfair+Display:,300, 400, 700"
     rel="stylesheet">
@@ -59,83 +59,21 @@
       <a href="index.html" class="home-button"><span class="fa fa-home"></span></a>
       <h1 class="mb-5">Portfolio</h1>
       <div class="mb-5">
-        <ul class="portfolio-list">
+        <div id="portfolio_loader" style="text-align:center; margin:20px;"> <span>Loading projects...</span> </div>
+        <ul class="portfolio-list" id="project-list">
 
           <!-- PORTFOLIO START -->
-
-          <!-- 1 -->
-          <li style="max-height: 300px; overflow: hidden; box-sizing: border-box;">
-            <a href="https://github.com/rahimuj570/what_to_do_flutter_MVVM" style="display: block; text-align: center;">
-              <img
-                src="https://image.winudf.com/v2/image1/ZGV2X2ltYWdlXzQwMjY4MTg3XzI1OTYyOF8yMDI2MDIxMDE2NTM0MjQzMQ/screen-1.jpg?h=2000&fakeurl=1&type=.jpg"
-                alt="Project Screenshot"
-                style="max-height: 260px; max-width: 100%; object-fit: contain; border-radius: 8px;">
-              <div class="text" style="margin-top: 10px;">
-                <h3>What To-Do : Task Reminder</h3>
-                <span>Visit Source</span>
-              </div>
-            </a>
-          </li>
-
-
-          <!-- 2 -->
-          <li style="max-height: 300px; overflow: hidden; box-sizing: border-box;">
-            <a href="https://github.com/rahimuj570/Flutter_Ecommerce" style="display: block; text-align: center;">
-              <img src="https://github.com/rahimuj570/Flutter_Ecommerce/raw/main/assets/screenshots/home_en.png"
-                alt="Project Screenshot"
-                style="max-height: 260px; max-width: 100%; object-fit: contain; border-radius: 8px;">
-              <div class="text" style="margin-top: 10px;">
-                <h3>Flutter eCommerce</h3>
-                <span>Visit Source</span>
-              </div>
-            </a>
-          </li>
-
-
-          <!-- 3 -->
-          <li style="max-height: 300px; overflow: hidden; box-sizing: border-box;">
-            <a href="https://github.com/rahimuj570/Task_Manager_Flutter" style="display: block; text-align: center;">
-              <img src="https://github.com/rahimuj570/Task_Manager_Flutter/raw/main/assets/screenshots/login.png"
-                alt="Project Screenshot"
-                style="max-height: 260px; max-width: 100%; object-fit: contain; border-radius: 8px;">
-              <div class="text" style="margin-top: 10px;">
-                <h3>REST-API Task Management</h3>
-                <span>Visit Source</span>
-              </div>
-            </a>
-          </li>
-
-
-
           <!-- 4 -->
-          <li style="max-height: 300px; overflow: hidden; box-sizing: border-box;">
+          <!-- <li style="max-height: 300px; overflow: hidden; box-sizing: border-box;">
             <a href="https://github.com/rahimuj570/AuthentiTrack" style="display: block; text-align: center;">
               <img src="https://github.com/rahimuj570/AuthentiTrack/raw/main/screenshots/qr.png"
-                alt="Project Screenshot"
-                style="max-height: 260px; max-width: 100%; object-fit: contain; border-radius: 8px;">
+                alt="Project Screenshot" style="height: 260px; max-width: 100%; object-fit: cover; border-radius: 8px;">
               <div class="text" style="margin-top: 10px;">
                 <h3>Product Authenticity Verification System (AuthentiTrack)</h3>
                 <span>Visit Source</span>
               </div>
             </a>
-          </li>
-
-
-
-          <!-- 5 -->
-          <li style="max-height: 300px; overflow: hidden; box-sizing: border-box;">
-            <a href="https://github.com/rahimuj570/quize_management_V1.2" style="display: block; text-align: center;">
-              <img src="https://github.com/rahimuj570/quize_management_V1.2/raw/main/screenshots/teacher_d.png"
-                alt="Project Screenshot"
-                style="max-height: 260px; max-width: 100%; object-fit: contain; border-radius: 8px;">
-              <div class="text" style="margin-top: 10px;">
-                <h3>Product Authenticity Verification System (AuthentiTrack)</h3>
-                <span>Visit Source</span>
-              </div>
-            </a>
-          </li>
-
-
+          </li> -->
           <!-- POSRTFOLIO END -->
 
         </ul>
@@ -158,6 +96,63 @@
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.countdown.min.js"></script>
   <script src="js/main.js"></script>
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
+    import { getFirestore, collection, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAttItfCKpUmup8oDI-uRchYW2T1-z9TTM",
+      authDomain: "my-github-portfolio-66f85.firebaseapp.com",
+      projectId: "my-github-portfolio-66f85",
+      storageBucket: "my-github-portfolio-66f85.appspot.com",  // <-- fix: should be .appspot.com
+      messagingSenderId: "504416162977",
+      appId: "1:504416162977:web:6bfef4825d041ece73cce0",
+      measurementId: "G-C2339D2RZV"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+
+    async function loadProjects() {
+      document.getElementById("portfolio_loader").style.display = "block";
+
+      try {
+        const q = query(collection(db, "projects"), orderBy("order", "asc"));
+        const querySnapshot = await getDocs(q);
+
+        const list = document.getElementById("project-list");
+        list.innerHTML = ""; // clear old items
+
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+
+          const li = document.createElement("li");
+          li.style.maxHeight = "300px";
+          li.style.overflow = "hidden";
+          li.style.boxSizing = "border-box";
+
+          li.innerHTML = ` <a href="${data.link}" style="display:block; text-align:center;"> <img src="${data.image}" alt="Project Screenshot" style="max-height:260px; max-width:100%; object-fit:contain; border-radius:8px;"> <div class="text" style="margin-top:10px;"> <h3>${data.title}</h3> <span>Visit Source</span> </div> </a> `;
+
+          list.appendChild(li);
+        });
+      } catch (error) {
+        console.error("Error loading projects:", error);
+      } finally {
+        // Hide loader after fetching
+        document.getElementById("portfolio_loader").style.display = "none";
+      }
+    }
+
+    loadProjects();
+  </script>
+
 
 </body>
 
