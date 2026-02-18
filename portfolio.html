@@ -124,7 +124,7 @@
       document.getElementById("portfolio_loader").style.display = "block";
 
       try {
-        const q = query(collection(db, "projects"), orderBy("order", "asc"));
+        const q = query(collection(db, "projects"), orderBy("order", "desc"));
         const querySnapshot = await getDocs(q);
 
         const list = document.getElementById("project-list");
