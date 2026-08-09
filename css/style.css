@@ -127,7 +127,7 @@ img {
 }
 
 .section-padding {
-  padding: 100px 0;
+  padding: 90px 0;
 }
 
 .section-light {
@@ -367,44 +367,49 @@ img {
 
 /* 5. Hero Section */
 .hero-section {
-  padding-top: 120px;
-  padding-bottom: 80px;
-  min-height: 70vh;
+  padding-top: 95px;
+  padding-bottom: 60px;
+  min-height: 60vh;
   display: flex;
   align-items: center;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.25fr 0.75fr;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 15px;
+  gap: 12px;
 }
 
 .hero-title {
-  font-size: 3.5rem;
-  letter-spacing: -0.02em;
+  font-size: 3.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1.1;
+  margin-bottom: 2px;
 }
 
 .hero-subtitle {
-  font-size: 1.75rem;
-  font-weight: 500;
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--accent-primary);
+  margin-bottom: 6px;
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
   color: var(--text-secondary);
   max-width: 600px;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .hero-ctas {
@@ -609,7 +614,13 @@ img {
   border-radius: var(--radius-md);
   padding: 25px;
   box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-fast);
+  transition: all var(--transition-fast);
+}
+
+.timeline-item.current .timeline-content {
+  border-left: 3.5px solid var(--accent-primary);
+  background-color: var(--accent-soft);
+  box-shadow: var(--shadow-md);
 }
 
 .timeline-item:hover .timeline-content {
@@ -695,7 +706,8 @@ img {
 }
 
 .app-name {
-  font-size: 2rem;
+  font-size: 2.25rem;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
@@ -703,6 +715,7 @@ img {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--accent-primary);
+  margin-top: -5px;
 }
 
 .app-desc {
@@ -713,7 +726,8 @@ img {
 }
 
 .capabilities-title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
   margin-top: 10px;
   color: var(--text-primary);
 }
@@ -722,22 +736,25 @@ img {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 30px;
+  gap: 12px 30px;
+  margin-top: 5px;
 }
 
 .app-features-list li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 24px;
   color: var(--text-secondary);
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .app-features-list li::before {
-  content: '→';
+  content: '✓';
   position: absolute;
   left: 0;
   color: var(--accent-primary);
   font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .app-tech-tags {
@@ -807,12 +824,12 @@ img {
   background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 25px;
+  padding: 28px;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  gap: 8px;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .project-card:hover, .package-card:hover {
@@ -822,14 +839,17 @@ img {
 }
 
 .project-title, .package-title {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--text-primary);
+  margin-bottom: 2px;
 }
 
 .project-role-tag, .package-version-tag {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--accent-primary);
+  margin-bottom: 8px;
 }
 
 .project-desc, .package-desc {
@@ -837,13 +857,14 @@ img {
   line-height: 1.6;
   color: var(--text-secondary);
   flex-grow: 1;
+  margin-bottom: 12px;
 }
 
 .project-tech-tags, .package-tech-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 5px;
+  margin-bottom: 14px;
 }
 
 .project-link, .package-link {
@@ -853,7 +874,8 @@ img {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--accent-primary);
-  margin-top: 10px;
+  align-self: flex-start;
+}
 }
 
 .project-link:hover, .package-link:hover {
@@ -1061,6 +1083,13 @@ a.info-value:hover {
   #resumeBtn {
     padding: 6px 14px;
     font-size: 0.85rem;
+  }
+
+  .app-badge-featured {
+    position: static;
+    display: inline-block;
+    margin-bottom: 15px;
+    align-self: flex-start;
   }
 
   .app-features-list {

@@ -151,28 +151,68 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
         
-        // Dynamic Social Links hydration
-        if (profile.githubUrl) {
-          document.querySelectorAll('a[href*="github.com/rahimuj570"]').forEach(el => {
+        // Dynamic Social & Contact Links hydration with visibility checks
+        const githubLinks = document.querySelectorAll('a[href*="github.com/rahimuj570"]');
+        if (profile.githubUrl && profile.githubUrl.trim() !== '') {
+          githubLinks.forEach(el => {
             el.href = profile.githubUrl;
-            el.style.display = '';
+            const item = el.closest('.info-item');
+            if (item) item.style.display = '';
+          });
+        } else {
+          githubLinks.forEach(el => {
+            const item = el.closest('.info-item');
+            if (item) item.style.display = 'none';
           });
         }
-        if (profile.linkedinUrl) {
-          const linkedin = document.getElementById('linkedinLink');
-          if (linkedin) {
+
+        const linkedin = document.getElementById('linkedinLink');
+        if (linkedin) {
+          if (profile.linkedinUrl && profile.linkedinUrl.trim() !== '') {
             linkedin.href = profile.linkedinUrl;
-            linkedin.textContent = profile.linkedinUrl.replace('https://', '').replace('www.', '');
+            linkedin.textContent = profile.linkedinUrl.replace('https://', '').replace('www.', '').replace('linkedin.com/in/', '');
+            const item = linkedin.closest('.info-item');
+            if (item) item.style.display = '';
+          } else {
+            const item = linkedin.closest('.info-item');
+            if (item) item.style.display = 'none';
           }
         }
-        if (profile.email) {
-          const emailText = document.getElementById('emailText');
+
+        const emailText = document.getElementById('emailText');
+        const emailBtn = document.getElementById('emailBtn');
+        if (profile.email && profile.email.trim() !== '') {
           if (emailText) {
             emailText.href = `mailto:${profile.email}`;
             emailText.textContent = profile.email;
+            const item = emailText.closest('.info-item');
+            if (item) item.style.display = '';
           }
-          const emailBtn = document.getElementById('emailBtn');
-          if (emailBtn) emailBtn.href = `mailto:${profile.email}`;
+          if (emailBtn) {
+            emailBtn.href = `mailto:${profile.email}`;
+            emailBtn.style.display = '';
+          }
+        } else {
+          if (emailText) {
+            const item = emailText.closest('.info-item');
+            if (item) item.style.display = 'none';
+          }
+          if (emailBtn) {
+            emailBtn.style.display = 'none';
+          }
+        }
+
+        const locationText = document.getElementById('locationText');
+        if (locationText) {
+          if (profile.location && profile.location.trim() !== '') {
+            locationText.textContent = profile.location;
+            const item = locationText.closest('.info-item');
+            if (item) item.style.display = '';
+          } else {
+            // Keep default static text if not explicitly overridden by DB
+            const item = locationText.closest('.info-item');
+            if (item) item.style.display = '';
+          }
         }
       }
 
