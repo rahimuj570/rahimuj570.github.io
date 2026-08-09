@@ -876,7 +876,6 @@ img {
   color: var(--accent-primary);
   align-self: flex-start;
 }
-}
 
 .project-link:hover, .package-link:hover {
   color: var(--accent-hover);
