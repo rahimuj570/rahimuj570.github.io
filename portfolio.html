@@ -1,167 +1,19 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <title>Projects | Md. Rahimujjaman Rahim – Flutter & Java Developer</title>
-
-  <meta name="description"
-    content="Explore Flutter and Java projects by Md. Rahimujjaman Rahim, including mobile apps, REST APIs, and academic projects built with clean architecture.">
-
-  <link rel="canonical" href="https://rahimuj570.github.io/portfolio.html">
-
-  <meta name="robots" content="index, follow">
-
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
-  <link rel="shortcut icon" href="./favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="./favicon/site.webmanifest" />
-
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Playfair+Display:,300, 400, 700"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
-
-  <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
-
-
-  <!-- Theme Style -->
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-
-  <div class="site-wrap">
-
-    <a href="#" class="offcanvas-toggle js-offcanvas-toggle">Menu</a>
-    <div class="offcanvas_menu" id="offcanvas_menu">
-      <ul class="mb-5">
-        <li><a href="index.html">Bio</a></li>
-        <li class="active"><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <ul class="social">
-        <li><a href="https://linkedin.com/in/rahimuj570" class="fa fa-linkedin"></a></li>
-        <li><a href="https://github.com/rahimuj570" class="fa fa-github"></a></li>
-        <li><a href="https://facebook.com/rahimuj570" class="fa fa-facebook"></a></li>
-      </ul>
-
-      </br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      Copyright &copy;
-      <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
-        class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-    </div>
-
-    <aside style="background-image: url(img/profile_big.jpg);"></aside>
-    <main>
-      <a href="index.html" class="home-button"><span class="fa fa-home"></span></a>
-      <h1 class="mb-5">Portfolio</h1>
-      <div class="mb-5">
-        <div id="portfolio_loader" style="text-align:center; margin:20px;"> <span>Loading projects...</span> </div>
-        <ul class="portfolio-list" id="project-list">
-
-          <!-- PORTFOLIO START -->
-          <!-- 4 -->
-          <!-- <li style="max-height: 300px; overflow: hidden; box-sizing: border-box;">
-            <a href="https://github.com/rahimuj570/AuthentiTrack" style="display: block; text-align: center;">
-              <img src="https://github.com/rahimuj570/AuthentiTrack/raw/main/screenshots/qr.png"
-                alt="Project Screenshot" style="height: 260px; max-width: 100%; object-fit: cover; border-radius: 8px;">
-              <div class="text" style="margin-top: 10px;">
-                <h3>Product Authenticity Verification System (AuthentiTrack)</h3>
-                <span>Visit Source</span>
-              </div>
-            </a>
-          </li> -->
-          <!-- POSRTFOLIO END -->
-
-        </ul>
-      </div>
-
-    </main>
-  </div>
-
-  <!-- loader -->
-  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-        stroke="#f4b214" />
-    </svg></div>
-
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/main.js"></script>
-
-
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
-    import { getFirestore, collection, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyAttItfCKpUmup8oDI-uRchYW2T1-z9TTM",
-      authDomain: "my-github-portfolio-66f85.firebaseapp.com",
-      projectId: "my-github-portfolio-66f85",
-      storageBucket: "my-github-portfolio-66f85.appspot.com",  // <-- fix: should be .appspot.com
-      messagingSenderId: "504416162977",
-      appId: "1:504416162977:web:6bfef4825d041ece73cce0",
-      measurementId: "G-C2339D2RZV"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const db = getFirestore(app);
-
-    async function loadProjects() {
-      document.getElementById("portfolio_loader").style.display = "block";
-
-      try {
-        const q = query(collection(db, "projects"), orderBy("order", "desc"));
-        const querySnapshot = await getDocs(q);
-
-        const list = document.getElementById("project-list");
-        list.innerHTML = ""; // clear old items
-
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-
-          const li = document.createElement("li");
-          li.style.maxHeight = "300px";
-          li.style.overflow = "hidden";
-          li.style.boxSizing = "border-box";
-
-          li.innerHTML = ` <a href="${data.link}" style="display:block; text-align:center;"> <img src="${data.image}" alt="Project Screenshot" style="max-height:260px; max-width:100%; object-fit:contain; border-radius:8px;"> <div class="text" style="margin-top:10px;"> <h3>${data.title}</h3> <span>Visit Source</span> </div> </a> `;
-
-          list.appendChild(li);
-        });
-      } catch (error) {
-        console.error("Error loading projects:", error);
-      } finally {
-        // Hide loader after fetching
-        document.getElementById("portfolio_loader").style.display = "none";
-      }
-    }
-
-    loadProjects();
+  <title>Projects | Md. Rahimujjaman Rahim – Flutter Developer</title>
+  <meta name="description" content="Explore Flutter projects by Md. Rahimujjaman Rahim, including mobile apps, REST APIs, and academic projects built with clean architecture.">
+  <link rel="canonical" href="https://rahimuj570.github.io/portfolio.html">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Immediate Redirect -->
+  <meta http-equiv="refresh" content="0; url=index.html#projects">
+  <script>
+    window.location.replace("index.html#projects");
   </script>
-
-
+</head>
+<body>
+  <p>Redirecting to <a href="index.html#projects">projects section</a>...</p>
 </body>
-
 </html>

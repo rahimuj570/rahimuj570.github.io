@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <title>Admin Dashboard | Md. Rahimujjaman Rahim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Outfit:300,400,600,700|Plus+Jakarta+Sans:300,400,500,600,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Custom Admin Dashboard Page Styling */
+    .admin-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-primary);
+    }
+
+    .login-container {
+      max-width: 400px;
+      width: 90%;
+      margin: 100px auto;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      background-color: var(--bg-primary);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--accent-primary);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .checkbox-group label {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    .checkbox-group input {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .admin-header {
+      background-color: var(--bg-glass);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-main {
+      flex-grow: 1;
+      padding: 40px 20px;
+      max-width: var(--max-width);
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 40px;
+    }
+
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .menu-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      text-align: left;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .menu-btn:hover, .menu-btn.active {
+      background-color: var(--accent-glow);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+
+    .data-table-container {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 25px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .admin-table th, .admin-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.95rem;
+    }
+
+    .admin-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--text-primary);
+      background-color: var(--bg-tertiary);
+    }
+
+    .admin-table td {
+      color: var(--text-secondary);
+    }
+
+    .action-btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-edit {
+      background-color: #f59e0b;
+      color: white !important;
+      border: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .btn-delete {
+      background-color: #ef4444;
+      color: white !important;
+      border: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      width: 90%;
+      max-width: 600px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 30px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .sidebar-menu {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+      
+      .menu-btn {
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="admin-wrapper">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+      <h2 style="margin-bottom: 25px; text-align: center;" class="logo">Admin Login</h2>
+      <div id="loginError" style="color: #ef4444; font-size: 0.9rem; margin-bottom: 15px; display: none;"></div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Admin Email</label>
+          <input type="email" id="email" required placeholder="admin@domain.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">Login</button>
+      </form>
+    </div>
+
+    <!-- Dashboard Layout (Initially Hidden) -->
+    <div id="dashboardScreen" style="display: none; flex-direction: column; flex-grow: 1;">
+      <header class="admin-header">
+        <a href="#" class="logo">Rahimuj<span>570</span> Admin</a>
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <span id="adminUserEmail" style="font-size: 0.9rem; color: var(--text-secondary);"></span>
+          <button id="logoutBtn" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem;">Logout</button>
+        </div>
+      </header>
+
+      <main class="admin-main">
+        <div class="dashboard-grid">
+          <!-- Sidebar Navigation -->
+          <aside class="sidebar-menu">
+            <button class="menu-btn active" data-collection="profile">Profile Details</button>
+            <button class="menu-btn" data-collection="site_settings">Site Settings</button>
+            <button class="menu-btn" data-collection="skills">Skills Manager</button>
+            <button class="menu-btn" data-collection="experience">Experience Timeline</button>
+            <button class="menu-btn" data-collection="published_apps">Published Apps</button>
+            <button class="menu-btn" data-collection="projects">Other Projects</button>
+            <button class="menu-btn" data-collection="packages">Packages</button>
+          </aside>
+
+          <!-- Main Content Area -->
+          <section class="data-table-container">
+            <div class="table-header">
+              <h2 id="currentCollectionTitle">Profile Details</h2>
+              <button id="addItemBtn" class="btn btn-primary" style="display: none;">Add Entry</button>
+            </div>
+
+            <!-- Table of Records -->
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead id="tableHead">
+                  <!-- Header fields generated dynamically -->
+                </thead>
+                <tbody id="tableBody">
+                  <!-- Rows populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Form Modal Overlay (Create/Edit entries) -->
+  <div id="formModal" class="modal-overlay">
+    <div class="modal-content">
+      <h2 id="modalTitle" style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">Edit Entry</h2>
+      <form id="docForm">
+        <!-- Input fields injected dynamically -->
+        <div id="dynamicFormFields"></div>
+
+        <div class="modal-footer">
+          <button type="button" id="closeModalBtn" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Document</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase Scripts -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+    import { getFirestore, collection, doc, addDoc, updateDoc, deleteDoc, getDocs } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+    import { firebaseConfig } from "./js/firebase-config.js";
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    let currentCollection = "profile";
+    let activeRecords = [];
+    let editingDocId = null;
+
+    // --- Tab schema mappings to generate lists and forms dynamically ---
+    const schemas = {
+      profile: [
+        { key: "name", label: "Full Name", type: "text", required: true },
+        { key: "title", label: "Professional Title", type: "text", required: true },
+        { key: "shortBio", label: "Short Bio (Hero Subtitle)", type: "textarea", required: true },
+        { key: "longBio", label: "Long Bio (About Me)", type: "textarea", required: true },
+        { key: "profileImage", label: "Profile Image Filepath", type: "text", required: true },
+        { key: "resumeUrl", label: "Resume URL", type: "text", required: true },
+        { key: "githubUrl", label: "GitHub URL", type: "text" },
+        { key: "linkedinUrl", label: "LinkedIn URL", type: "text" },
+        { key: "email", label: "Email address", type: "text" },
+        { key: "availability", label: "Availability Badge Text", type: "text" },
+        { key: "visible", label: "Visible on Portfolio", type: "checkbox" }
+      ],
+      site_settings: [
+        { key: "siteTitle", label: "Page Title", type: "text", required: true },
+        { key: "copyrightYear", label: "Copyright Year", type: "number", required: true },
+        { key: "visible", label: "Active", type: "checkbox" }
+      ],
+      skills: [
+        { key: "category", label: "Category", type: "select", options: ["Primary", "Architecture & State Management", "Backend & Integration", "Databases", "Deployment", "Tools & Other"], required: true },
+        { key: "name", label: "Skill Name", type: "text", required: true },
+        { key: "order", label: "Display Order", type: "number", required: true },
+        { key: "visible", label: "Visible", type: "checkbox" }
+      ],
+      experience: [
+        { key: "company", label: "Company / Institution", type: "text", required: true },
+        { key: "position", label: "Role / Position / Degree", type: "text", required: true },
+        { key: "startDate", label: "Start Date (e.g. 2022)", type: "text", required: true },
+        { key: "endDate", label: "End Date (Blank if Current)", type: "text" },
+        { key: "isCurrent", label: "Current Role", type: "checkbox" },
+        { key: "description", label: "Role Summary Description", type: "textarea", required: true },
+        { key: "order", label: "Display Order", type: "number", required: true },
+        { key: "visible", label: "Visible", type: "checkbox" }
+      ],
+      published_apps: [
+        { key: "name", label: "Application Name", type: "text", required: true },
+        { key: "role", label: "Role", type: "text", required: true },
+        { key: "description", label: "Description Summary", type: "textarea", required: true },
+        { key: "features", label: "Key Capabilities (Comma Separated)", type: "csv", required: true },
+        { key: "technologies", label: "Tech Tags (Comma Separated)", type: "csv", required: true },
+        { key: "playStoreUrl", label: "Google Play Store Link", type: "text" },
+        { key: "appStoreUrl", label: "Apple App Store Link", type: "text" },
+        { key: "featured", label: "Featured Showcase", type: "checkbox" },
+        { key: "order", label: "Display Order", type: "number", required: true },
+        { key: "visible", label: "Visible", type: "checkbox" }
+      ],
+      projects: [
+        { key: "name", label: "Project Name", type: "text", required: true },
+        { key: "role", label: "Role", type: "text", required: true },
+        { key: "description", label: "Project Summary", type: "textarea", required: true },
+        { key: "technologies", label: "Tech Tags (Comma Separated)", type: "csv", required: true },
+        { key: "githubUrl", label: "GitHub Repository Link", type: "text" },
+        { key: "liveUrl", label: "Live Deployment Link", type: "text" },
+        { key: "order", label: "Display Order", type: "number", required: true },
+        { key: "visible", label: "Visible", type: "checkbox" }
+      ],
+      packages: [
+        { key: "name", label: "Package Name", type: "text", required: true },
+        { key: "version", label: "Version Label", type: "text", required: true },
+        { key: "description", label: "Short Description", type: "textarea", required: true },
+        { key: "technologies", label: "Tech tags (Comma Separated)", type: "csv", required: true },
+        { key: "pubDevUrl", label: "pub.dev Package Link", type: "text", required: true },
+        { key: "githubUrl", label: "GitHub Code Link", type: "text" },
+        { key: "order", label: "Display Order", type: "number", required: true },
+        { key: "visible", label: "Visible", type: "checkbox" }
+      ]
+    };
+
+    // --- State Listeners ---
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("dashboardScreen").style.display = "flex";
+        document.getElementById("adminUserEmail").textContent = user.email;
+        loadCollection(currentCollection);
+      } else {
+        document.getElementById("loginScreen").style.display = "block";
+        document.getElementById("dashboardScreen").style.display = "none";
+      }
+    });
+
+    // --- Authentication Actions ---
+    document.getElementById("loginForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const errorDiv = document.getElementById("loginError");
+      
+      errorDiv.style.display = "none";
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (err) {
+        errorDiv.textContent = "Error: Invalid username or password.";
+        errorDiv.style.display = "block";
+      }
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      signOut(auth);
+    });
+
+    // --- Navigation Links Actions ---
+    document.querySelectorAll(".sidebar-menu button").forEach(btn => {
+      btn.addEventListener("click", e => {
+        document.querySelectorAll(".sidebar-menu button").forEach(b => b.classList.remove("active"));
+        e.target.classList.add("active");
+        
+        currentCollection = e.target.dataset.collection;
+        document.getElementById("currentCollectionTitle").textContent = e.target.textContent;
+        
+        // Profile & Settings are single documents, no need to add new entries
+        const hideAddBtn = (currentCollection === "profile" || currentCollection === "site_settings");
+        document.getElementById("addItemBtn").style.display = hideAddBtn ? "none" : "inline-flex";
+
+        loadCollection(currentCollection);
+      });
+    });
+
+    // --- CRUD: Load and Read Data ---
+    async function loadCollection(collectionName) {
+      const tbody = document.getElementById("tableBody");
+      const thead = document.getElementById("tableHead");
+      
+      tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">Loading collection data...</td></tr>`;
+      thead.innerHTML = "";
+
+      try {
+        const colRef = collection(db, collectionName);
+        const snapshot = await getDocs(colRef);
+        activeRecords = [];
+        snapshot.forEach(doc => {
+          activeRecords.push({ id: doc.id, ...doc.data() });
+        });
+
+        // Set Table Headers dynamically
+        let headersHTML = "";
+        if (collectionName === "profile") {
+          headersHTML = `<tr><th>Full Name</th><th>Professional Title</th><th>Email</th><th>Actions</th></tr>`;
+        } else if (collectionName === "site_settings") {
+          headersHTML = `<tr><th>Site Title</th><th>Copyright Year</th><th>Actions</th></tr>`;
+        } else if (collectionName === "skills") {
+          headersHTML = `<tr><th>Category</th><th>Skill Name</th><th>Order</th><th>Actions</th></tr>`;
+        } else if (collectionName === "experience") {
+          headersHTML = `<tr><th>Company</th><th>Position</th><th>Duration</th><th>Actions</th></tr>`;
+        } else {
+          headersHTML = `<tr><th>Name</th><th>Role</th><th>Order</th><th>Actions</th></tr>`;
+        }
+        thead.innerHTML = headersHTML;
+
+        // Render Table Body Rows
+        tbody.innerHTML = "";
+        if (activeRecords.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">No records found. Click 'Add Entry' to create one.</td></tr>`;
+          return;
+        }
+
+        activeRecords.forEach(record => {
+          const tr = document.createElement("tr");
+          let colsHTML = "";
+
+          if (collectionName === "profile") {
+            colsHTML = `<td>${record.name || ''}</td><td>${record.title || ''}</td><td>${record.email || ''}</td>`;
+          } else if (collectionName === "site_settings") {
+            colsHTML = `<td>${record.siteTitle || ''}</td><td>${record.copyrightYear || ''}</td>`;
+          } else if (collectionName === "skills") {
+            colsHTML = `<td>${record.category || ''}</td><td>${record.name || ''}</td><td>${record.order || ''}</td>`;
+          } else if (collectionName === "experience") {
+            colsHTML = `<td>${record.company || ''}</td><td>${record.position || ''}</td><td>${record.startDate || ''} ${record.endDate ? '- ' + record.endDate : (record.isCurrent ? '(Current)' : '')}</td>`;
+          } else {
+            colsHTML = `<td>${record.name || ''}</td><td>${record.role || record.version || ''}</td><td>${record.order || ''}</td>`;
+          }
+
+          // In Profile and Site Settings we do not allow deleting the configuration document
+          const deleteButtonHTML = (collectionName === "profile" || collectionName === "site_settings")
+            ? ""
+            : `<button class="btn-delete" data-id="${record.id}">Delete</button>`;
+
+          colsHTML += `
+            <td>
+              <div class="action-btn-group">
+                <button class="btn-edit" data-id="${record.id}">Edit</button>
+                ${deleteButtonHTML}
+              </div>
+            </td>
+          `;
+          tr.innerHTML = colsHTML;
+          tbody.appendChild(tr);
+        });
+
+        // Add event listeners to table actions
+        document.querySelectorAll(".btn-edit").forEach(btn => {
+          btn.addEventListener("click", e => openEditModal(e.target.dataset.id));
+        });
+        document.querySelectorAll(".btn-delete").forEach(btn => {
+          btn.addEventListener("click", e => deleteRecord(e.target.dataset.id));
+        });
+
+      } catch (err) {
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color: #ef4444;">Error fetching data: ${err.message}</td></tr>`;
+      }
+    }
+
+    // --- CRUD: Modal Open & Form Generations ---
+    const modal = document.getElementById("formModal");
+    
+    document.getElementById("addItemBtn").addEventListener("click", () => {
+      openCreateModal();
+    });
+
+    document.getElementById("closeModalBtn").addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
+
+    function openCreateModal() {
+      editingDocId = null;
+      document.getElementById("modalTitle").textContent = `Create New Entry in '${currentCollection}'`;
+      generateFields({});
+      modal.classList.add("show");
+    }
+
+    function openEditModal(docId) {
+      editingDocId = docId;
+      document.getElementById("modalTitle").textContent = `Edit Entry in '${currentCollection}'`;
+      const record = activeRecords.find(r => r.id === docId);
+      generateFields(record || {});
+      modal.classList.add("show");
+    }
+
+    function generateFields(record) {
+      const container = document.getElementById("dynamicFormFields");
+      container.innerHTML = "";
+      const schema = schemas[currentCollection];
+
+      schema.forEach(field => {
+        const value = record[field.key] !== undefined ? record[field.key] : "";
+        const div = document.createElement("div");
+        div.className = "form-group";
+
+        const label = document.createElement("label");
+        label.setAttribute("for", `field_${field.key}`);
+        label.textContent = field.label;
+        div.appendChild(label);
+
+        if (field.type === "textarea") {
+          const textarea = document.createElement("textarea");
+          textarea.id = `field_${field.key}`;
+          textarea.required = !!field.required;
+          textarea.rows = 4;
+          textarea.value = value;
+          div.appendChild(textarea);
+        } else if (field.type === "select") {
+          const select = document.createElement("select");
+          select.id = `field_${field.key}`;
+          select.required = !!field.required;
+          
+          field.options.forEach(opt => {
+            const option = document.createElement("option");
+            option.value = opt;
+            option.textContent = opt;
+            if (value === opt) option.selected = true;
+            select.appendChild(option);
+          });
+          div.appendChild(select);
+        } else if (field.type === "checkbox") {
+          div.className = "checkbox-group";
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.id = `field_${field.key}`;
+          input.checked = (value === true);
+          
+          // Re-assemble order to put checkbox first
+          div.innerHTML = "";
+          div.appendChild(input);
+          div.appendChild(label);
+        } else {
+          // Standard text, number, csv inputs
+          const input = document.createElement("input");
+          input.type = field.type === "number" ? "number" : "text";
+          input.id = `field_${field.key}`;
+          input.required = !!field.required;
+          
+          if (field.type === "csv") {
+            input.value = Array.isArray(value) ? value.join(", ") : value;
+            input.placeholder = "e.g. Flutter, Dart, Firebase";
+          } else {
+            input.value = value;
+          }
+          div.appendChild(input);
+        }
+
+        container.appendChild(div);
+      });
+    }
+
+    // --- CRUD: Document Submission & Delete Actions ---
+    document.getElementById("docForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const schema = schemas[currentCollection];
+      const payload = {};
+
+      schema.forEach(field => {
+        const input = document.getElementById(`field_${field.key}`);
+        if (!input) return;
+
+        if (field.type === "checkbox") {
+          payload[field.key] = input.checked;
+        } else if (field.type === "number") {
+          payload[field.key] = Number(input.value);
+        } else if (field.type === "csv") {
+          payload[field.key] = input.value.split(",").map(item => item.trim()).filter(item => item.length > 0);
+        } else {
+          payload[field.key] = input.value.trim();
+        }
+      });
+
+      try {
+        if (editingDocId) {
+          // UPDATE
+          const docRef = doc(db, currentCollection, editingDocId);
+          await updateDoc(docRef, payload);
+          alert("Entry updated successfully!");
+        } else {
+          // CREATE
+          const colRef = collection(db, currentCollection);
+          await addDoc(colRef, payload);
+          alert("Entry created successfully!");
+        }
+        modal.classList.remove("show");
+        loadCollection(currentCollection);
+      } catch (err) {
+        alert("Error saving document: " + err.message);
+      }
+    });
+
+    async function deleteRecord(docId) {
+      if (!confirm("Are you absolutely sure you want to delete this record? This action cannot be undone.")) return;
+      try {
+        const docRef = doc(db, currentCollection, docId);
+        await deleteDoc(docRef);
+        alert("Entry deleted successfully!");
+        loadCollection(currentCollection);
+      } catch (err) {
+        alert("Error deleting document: " + err.message);
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,176 +1,525 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-  <title>Md. Rahimujjaman Rahim | Flutter & Java Developer</title>
-
   <meta charset="utf-8">
+  <title>Md. Rahimujjaman Rahim | Flutter Developer</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <meta name="description"
-    content="Final-year Computer Science & Engineering student specializing in Flutter and Java, focused on building clean and reliable applications.">
-
+    content="Flutter Developer building cross-platform mobile applications with Flutter, Dart, Firebase, REST APIs, and modern application architecture.">
   <meta name="author" content="Md. Rahimujjaman Rahim">
   <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="Md. Rahimujjaman Rahim | Flutter & Java Developer">
-  <meta property="og:description"
-    content="Flutter and Java developer focused on building clean, reliable mobile and web applications. View my portfolio and projects.">
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
+  <meta property="og:title" content="Md. Rahimujjaman Rahim | Flutter Developer">
+  <meta property="og:description"
+    content="Flutter Developer specializing in Dart, cross-platform mobile apps, Firebase integrations, and production deployment. View my portfolio and projects.">
   <meta property="og:image" content="https://rahimuj570.github.io/img/profile_big.jpg">
-  <meta property="og:url" content="https://rahimuj570.github.io">
+  <meta property="og:url" content="https://rahimuj570.github.io/">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Md. Rahimujjaman Rahim | Flutter Developer">
+  <meta name="twitter:description"
+    content="Flutter Developer specializing in Dart, cross-platform mobile apps, Firebase integrations, and production deployment.">
+  <meta name="twitter:image" content="https://rahimuj570.github.io/img/profile_big.jpg">
 
   <link rel="canonical" href="https://rahimuj570.github.io/">
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
   <link rel="shortcut icon" href="./favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
   <link rel="manifest" href="./favicon/site.webmanifest" />
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Playfair+Display:,300, 400, 700"
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css?family=Outfit:300,400,600,700|Plus+Jakarta+Sans:300,400,500,600,700&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
-
-  <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
-
-
-  <!-- Theme Style -->
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
   <meta name="google-site-verification" content="1MjxbgDwgErDFC74Okwq8o4IGstV1EfPzWzZgjamETQ" />
   <meta name="msvalidate.01" content="A1939822D10E86F15958EC64F78376EA" />
 
+  <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Md. Rahimujjaman Rahim",
-  "jobTitle": "Flutter and Java Developer",
-  "url": "https://rahimuj570.github.io/",
-  "sameAs": [
-    "https://www.linkedin.com/in/rahimuj570",
-    "https://github.com/rahimuj570",
-    "https://www.facebook.com/rahimuj570"
-  ]
-}
-</script>
-
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Md. Rahimujjaman Rahim",
+    "jobTitle": "Flutter Developer",
+    "url": "https://rahimuj570.github.io/",
+    "image": "https://rahimuj570.github.io/img/profile_big.jpg",
+    "sameAs": [
+      "https://github.com/rahimuj570",
+      "https://linkedin.com/in/rahimuj570"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "JVAI"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "International University of Scholars"
+    }
+  }
+  </script>
 </head>
 
 <body>
+  <!-- Header & Navigation -->
+  <header class="navbar-header" id="header">
+    <div class="nav-container">
+      <a href="#" class="logo">Rahimuj<span>570</span></a>
 
-  <div class="site-wrap">
+      <nav class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#published-apps" class="nav-link">Published Apps</a></li>
+          <li><a href="#packages" class="nav-link">Packages</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
 
-    <a href="#" class="offcanvas-toggle js-offcanvas-toggle">Menu</a>
-    <div class="offcanvas_menu" id="offcanvas_menu">
-      <ul class="mb-5">
-        <li class="active"><a href="index.html">Bio</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <ul class="social">
-        <li><a href="https://linkedin.com/in/rahimuj570" class="fa fa-linkedin"></a></li>
-        <li><a href="https://github.com/rahimuj570" class="fa fa-github"></a></li>
-        <li><a href="https://facebook.com/rahimuj570" class="fa fa-facebook"></a></li>
-      </ul>
-
-      </br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      Copyright &copy;
-      <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
-        class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-    </div>
-
-    <aside style="background-image: url(img/profile_big.jpg);"></aside>
-    <main>
-      <h1 class="mb-0">Hi, I'm Rahimujjaman</h1>
-      <div class="mb-5">
-        <p class="lead mb-3">Flutter and Java Developer</p>
-        <p>Hi, I’m Md. Rahimujjaman Rahim — a Computer Science & Engineering graduate-to-be focused on building clean,
-          reliable mobile
-          and
-          web applications. I primarily work with Flutter and Java, and enjoy turning ideas into real, usable products
-          through thoughtful architecture and continuous improvement. I’m currently preparing for junior developer roles
-          and always eager to learn, build, and collaborate.</p>
-        <p>My work includes academic and personal projects built with Flutter, JavaEE, REST APIs, Firebase, and
-          relational databases such as MySQL and Oracle. I care about writing readable, maintainable code and
-          understanding why a solution works—not just making it work. I’m especially interested in mobile app
-          development and backend systems that scale.</p>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <!-- Sun Icon -->
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <!-- Moon Icon -->
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+        <a id="resumeBtn" href="https://docs.google.com/document/d/11W8KwXMYr4iQyt_MTnhe-7T3W4x_F8to2V-zZR67XwE/preview"
+          target="_blank" class="btn btn-outline" rel="noopener">Resume</a>
+        <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+    </div>
+  </header>
 
-      <p>
-        <a href="https://linkedin.com/in/rahimuj570" class="mr-2 mb-2">Linkedin</a>
-        <a href="https://github.com/rahimuj570" class="mr-2 mb-2">GitHub</a>
-        <a href="https://facebook.com/rahimuj570" class="mr-2 mb-2">Facebook</a>
-      </p>
-      <!-- <h2 class="mb-4 mt-5">Services</h2>
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-4">
-            <div class="media custom-media  d-block">
-              <div class="icon mr-3"><span class="ion-android-cart"></span></div>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">eCommerce Websites</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed obcaecati totam.</p>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="availability-badge" id="availabilityText">Available for Opportunities</span>
+          <h1 class="hero-title">Md. Rahimujjaman Rahim</h1>
+          <p class="hero-subtitle">Flutter Developer</p>
+          <p class="hero-description" id="heroSubtitle">
+            I build cross-platform mobile applications with Flutter, from UI development and API integration to
+            Firebase, debugging, and production deployment.
+          </p>
+          <div class="hero-ctas">
+            <a href="#published-apps" class="btn btn-primary">View My Work</a>
+            <a href="https://github.com/rahimuj570" target="_blank" rel="noopener" class="btn btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+        <div class="hero-image-container">
+          <div class="image-wrapper">
+            <img src="img/profile_big.jpg" alt="Md. Rahimujjaman Rahim" class="profile-img" id="profileImage">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-padding" id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p id="longBio">
+              Hi, I’m Md. Rahimujjaman Rahim — a Flutter Developer focused on building clean, reliable, and
+              production-ready mobile applications. I primarily work with Flutter and Dart, and enjoy turning ideas into
+              real, usable products through thoughtful architecture and continuous improvement.
+            </p>
+            <p>
+              I care about writing readable, maintainable code and understanding why a solution works — not just making
+              it work. I specialize in mobile app development, state management, REST API integration, and backend
+              services that scale.
+            </p>
+          </div>
+          <div class="about-stats-card">
+            <h3 class="card-title">Technical Highlights</h3>
+            <ul class="highlights-list">
+              <li>
+                <span class="icon">✓</span>
+                <span class="text"><strong>Multiplatform Deployment:</strong> Production experience on both Google Play
+                  & App Store.</span>
+              </li>
+              <li>
+                <span class="icon">✓</span>
+                <span class="text"><strong>State Management:</strong> Provider, Riverpod, MVVM.</span>
+              </li>
+              <li>
+                <span class="icon">✓</span>
+                <span class="text"><strong>Backend Integration:</strong> Firebase, REST APIs, Dio, WebSockets.</span>
+              </li>
+              <li>
+                <span class="icon">✓</span>
+                <span class="text"><strong>Clean Architecture:</strong> SOLID Principles, Dependency Injection,
+                  MVVM.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section section-padding section-light" id="skills">
+      <div class="container">
+        <h2 class="section-title">Tech Stack & Skills</h2>
+        <div class="skills-grid" id="skillsContainer">
+          <!-- Static fallback collections. Will be overwritten/hydrated by JS -->
+          <div class="skills-category-card">
+            <h3 class="category-title">Primary</h3>
+            <div class="tags-container">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Dart</span>
+              <span class="tech-tag">Android</span>
+              <span class="tech-tag">iOS</span>
+              <span class="tech-tag">Cross-platform development</span>
+            </div>
+          </div>
+          <div class="skills-category-card">
+            <h3 class="category-title">Architecture & State Management</h3>
+            <div class="tags-container">
+              <span class="tech-tag">MVVM</span>
+              <span class="tech-tag">Clean Architecture</span>
+              <span class="tech-tag">Provider</span>
+              <span class="tech-tag">Riverpod</span>
+              <span class="tech-tag">Dependency Injection</span>
+              <span class="tech-tag">SOLID principles</span>
+            </div>
+          </div>
+          <div class="skills-category-card">
+            <h3 class="category-title">Backend & Integration</h3>
+            <div class="tags-container">
+              <span class="tech-tag">REST APIs</span>
+              <span class="tech-tag">Dio</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Firebase Authentication</span>
+              <span class="tech-tag">Cloud Firestore</span>
+              <span class="tech-tag">Firebase Cloud Messaging</span>
+              <span class="tech-tag">WebSockets</span>
+            </div>
+          </div>
+          <div class="skills-category-card">
+            <h3 class="category-title">Databases</h3>
+            <div class="tags-container">
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Oracle</span>
+              <span class="tech-tag">Firebase Firestore</span>
+            </div>
+          </div>
+          <div class="skills-category-card">
+            <h3 class="category-title">Deployment</h3>
+            <div class="tags-container">
+              <span class="tech-tag">Google Play Console</span>
+              <span class="tech-tag">Apple App Store</span>
+              <span class="tech-tag">Android release builds</span>
+              <span class="tech-tag">Android App Bundles</span>
+              <span class="tech-tag">iOS builds / TestFlight</span>
+              <span class="tech-tag">App signing</span>
+              <span class="tech-tag">Store submissions</span>
+            </div>
+          </div>
+          <div class="skills-category-card">
+            <h3 class="category-title">Tools & Other</h3>
+            <div class="tags-container">
+              <span class="tech-tag">Git</span>
+              <span class="tech-tag">GitHub</span>
+              <span class="tech-tag">Android Studio</span>
+              <span class="tech-tag">VS Code</span>
+              <span class="tech-tag">Xcode</span>
+              <span class="tech-tag">FVM</span>
+              <span class="tech-tag">Postman</span>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">JavaEE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section class="experience-section section-padding" id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience & Education</h2>
+        <div class="timeline" id="experienceContainer">
+          <!-- Static Fallback Items -->
+          <div class="timeline-item current">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Current Role</span>
+              <h3 class="timeline-role">Trainee Flutter Developer</h3>
+              <h4 class="timeline-company">JVAI</h4>
+              <p class="timeline-text">
+                Working on Flutter-based mobile application development, UI implementation, API integration, debugging,
+                and development tasks.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2022 - 2026</span>
+              <h3 class="timeline-role">B.Sc. in Computer Science & Engineering</h3>
+              <h4 class="timeline-company">International University of Scholars</h4>
+              <p class="timeline-text">
+                Expected Graduation: March 2026. Academic CGPA: 3.94 / 4.00. Focus on algorithms, object-oriented
+                programming, and cross-platform mobile systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Published Applications -->
+    <section class="published-apps-section section-padding section-light" id="published-apps">
+      <div class="container">
+        <div class="section-header-badge">Built → Deployed → Published</div>
+        <h2 class="section-title">Published Applications</h2>
+
+        <div class="apps-container" id="publishedAppsContainer">
+          <!-- Static Fallback: Black Landcestry -->
+          <div class="app-showcase-card">
+            <div class="app-badge-featured">Featured Production Application</div>
+            <div class="app-grid">
+              <div class="app-info">
+                <h3 class="app-name">Black Landcestry</h3>
+                <p class="app-role-tag">Role: Flutter Developer</p>
+                <p class="app-desc">
+                  A production cross-platform mobile application that connects justice seekers with professional legal
+                  and ancestry experts.
+                </p>
+
+                <h4 class="capabilities-title">Key Core Capabilities:</h4>
+                <ul class="app-features-list">
+                  <li>Secure user registration and Authentication</li>
+                  <li>Real-time chat messaging channels between users and experts</li>
+                  <li>Dynamic consultation Booking workflows</li>
+                  <li>Deeply integrated Firebase configuration & Cloud Firestore</li>
+                  <li>Real-time push notifications via Firebase Cloud Messaging</li>
+                  <li>Custom responsive UI supporting multiple aspect ratios</li>
+                </ul>
+
+                <div class="app-tech-tags">
+                  <span class="tech-tag">Flutter</span>
+                  <span class="tech-tag">Dart</span>
+                  <span class="tech-tag">Firebase</span>
+                  <span class="tech-tag">Cloud Firestore</span>
+                  <span class="tech-tag">Authentication</span>
+                  <span class="tech-tag">Push Notifications</span>
+                  <span class="tech-tag">REST APIs</span>
+                </div>
+
+                <div class="app-links">
+                  <a href="https://play.google.com/store/apps/details?id=com.blacklandcestry" target="_blank"
+                    rel="noopener" class="store-btn play-store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor">
+                      <path
+                        d="M3 20.29V3.71c0-.49.27-.92.71-1.12L13.56 12 3.71 21.41c-.44-.2-.71-.63-.71-1.12zm11.72-8.29 4.34 2.5-12.7 7.37L14.72 12zm.84-.49 4.34-2.51c.44-.25.72-.73.72-1.28s-.28-1.03-.72-1.28l-4.34-2.51L12.72 11l2.84.51zM4.77 2.12l12.7 7.37L13.56 12 4.77 2.12z" />
+                    </svg>
+                    Google Play
+                  </a>
+                  <a href="https://apps.apple.com/us/app/black-landcestry/id6780761155" target="_blank" rel="noopener"
+                    class="store-btn app-store">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor">
+                      <path
+                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.22.67-2.94 1.51-.64.73-1.2 1.88-1.05 2.99 1.12.09 2.26-.57 3-.14z" />
+                    </svg>
+                    App Store
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-6 mb-4">
-            <div class="media custom-media  d-block">
-              <div class="icon mr-3"><span class="ion-bonfire"></span></div>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">Branding Identity </a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed obcaecati, totam.</p>
-              </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section section-padding" id="packages">
+      <div class="container">
+        <h2 class="section-title">Open Source & Packages</h2>
+        <div class="packages-grid" id="packagesContainer">
+          <!-- Loaded dynamically from Firebase; will show a minimal indicator if empty -->
+          <div class="packages-placeholder-message" id="packagesPlaceholder">
+            <p>Dart/Flutter packages on pub.dev will appear here. Fetching from database...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Projects Section -->
+    <section class="projects-section section-padding section-light" id="projects">
+      <div class="container">
+        <h2 class="section-title">Other Projects</h2>
+        <div class="projects-grid" id="projectsContainer">
+          <!-- Static Fallbacks -->
+          <div class="project-card">
+            <h3 class="project-title">Spotify Clone</h3>
+            <p class="project-role-tag">Role: Flutter Developer</p>
+            <p class="project-desc">A Flutter-based application inspired by the Spotify UI. Integrates structured
+              layouts, navigation flows, and custom media widgets.</p>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Dart</span>
+            </div>
+            <a href="https://github.com/rahimuj570/flutter_spotify_clone" target="_blank" rel="noopener"
+              class="project-link">
+              View Source
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3 class="project-title">Task Reminder</h3>
+            <p class="project-role-tag">Role: Flutter Developer</p>
+            <p class="project-desc">A practical Flutter mobile application built for scheduling tasks, organizing
+              reminders, and handling state through clean structures.</p>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Dart</span>
+              <span class="tech-tag">MVVM</span>
+            </div>
+            <a href="https://github.com/rahimuj570/what_to_do_flutter_MVVM" target="_blank" rel="noopener"
+              class="project-link">
+              View Source
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3 class="project-title">Product Authenticity System (AuthentiTrack)</h3>
+            <p class="project-role-tag">Role: Flutter Developer</p>
+            <p class="project-desc">Mobile application utilizing QR code verification to determine the genuineness and
+              tracing history of consumer items.</p>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Dart</span>
+              <span class="tech-tag">Java</span>
+            </div>
+            <a href="https://github.com/rahimuj570/AuthentiTrack" target="_blank" rel="noopener" class="project-link">
+              View Source
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section-padding" id="contact">
+      <div class="container contact-container">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="contact-subtitle">
+          If you have a project idea, professional opportunity, or just want to connect, feel free to reach out.
+        </p>
+
+        <div class="contact-card">
+          <div class="contact-info-list">
+            <div class="info-item">
+              <span class="info-label">Email:</span>
+              <a href="mailto:rahimuj570@gmail.com" class="info-value" id="emailText">rahimuj570@gmail.com</a>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Location:</span>
+              <span class="info-value" id="locationText">Dhaka, Bangladesh</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">GitHub:</span>
+              <a href="https://github.com/rahimuj570" target="_blank" rel="noopener"
+                class="info-value">github.com/rahimuj570</a>
+            </div>
+            <div class="info-item">
+              <span class="info-label">LinkedIn:</span>
+              <a href="https://linkedin.com/in/rahimuj570" target="_blank" rel="noopener" class="info-value"
+                id="linkedinLink">linkedin.com/in/rahimuj570</a>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-6 mb-4">
-            <div class="media custom-media  d-block">
-              <div class="icon mr-3"><span class="ion-videocamera"></span></div>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">Video Editing</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed obcaecati totam.</p>
-              </div>
-            </div>
+          <div class="contact-actions">
+            <a href="mailto:rahimuj570@gmail.com" class="btn btn-primary" id="emailBtn">Send Email</a>
           </div>
-          
-          <div class="col-md-6 col-lg-6 mb-4">
-            <div class="media custom-media  d-block">
-              <div class="icon mr-3"><span class="ion-cube"></span></div>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">Web Applications </a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed obcaecati, totam.</p>
-              </div>
-            </div>
-          </div> -->
-  </div>
-
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p id="footerCopyright">Copyright &copy; 2026 Md. Rahimujjaman Rahim. All rights reserved.</p>
+      <div class="social-footer-links" id="socialFooterLinks">
+        <a href="https://github.com/rahimuj570" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/rahimuj570" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Loader / Spinner -->
+  <div id="loader" class="loader-overlay">
+    <div class="spinner"></div>
   </div>
 
-  <!-- loader -->
-  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-        stroke="#f4b214" />
-    </svg></div>
-
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/main.js"></script>
-
+  <!-- Scripts -->
+  <script src="js/main.js" type="module"></script>
 </body>
 
 </html>
