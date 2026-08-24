@@ -6,19 +6,4 @@
     <priority>1.0</priority>
   </url>
 
-  <url>
-    <loc>https://rahimuj570.github.io/portfolio.html</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://rahimuj570.github.io/resume.html</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://rahimuj570.github.io/contact.html</loc>
-    <priority>0.6</priority>
-  </url>
-
 </urlset>
